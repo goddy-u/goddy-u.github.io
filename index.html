@@ -1,33 +1,10 @@
 Welcome to my github pages. I would update it in a few days. Feel free contact me via the Contact form.
 
-<form id='contact_form' method='POST'>
-  <div class='large-12 columns'>
-    <p id='thanks' style='display: none;'>
-      Thanks for contacting me, we'll be in touch soon!
-    </p>
-  </div>
-  <div class='medium-12 columns'>
+  <form action="https://formspree.io/e40145@gmail.com"
+      method="POST">
     <input class='required' name='name' placeholder='Your Name' type='text'>
     <input class='required email' name='email' placeholder='Your Email' type='text'>
     <input class='required' name='subject' placeholder='Subject' type='text'>
     <textarea class='required' name='message' placeholder='Message'></textarea>
     <input class='button white' type='Submit'value="Send">
-  </div>
 </form>
-
-$('form#contact_form').validate({
-  messages: { },
-  submitHandler: function(form) {
-    $.ajax({
-      url: "//formspree.io/e40145@gmail.com",
-      method: "POST",
-      data: $(form).serialize(),
-      dataType: "json",
-      success: function(data) {
-          $("form#contact_form :input").prop("disabled", true);
-          $('#thanks').show();
-      }
-    });
-    return false;
-  }
-});
